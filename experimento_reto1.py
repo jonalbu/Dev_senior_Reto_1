@@ -18,7 +18,7 @@ class Experimento:
             self.rango = rango
             self.varianza = varianza
             
-            
+   
 
 # función para agregar un experimento
 
