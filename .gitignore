@@ -1,4 +1,7 @@
 __pycache__/
+*.pyc
+*.pyo
+
 captura.png
 informe.txt
 Reto_1_Python.pdf
