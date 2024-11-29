@@ -1,0 +1,27 @@
+***************INFORME DE EXPERIMENTOS************
+
+===============Experimento 1=================
+Nombre: Mezcla
+Fecha: 28/11/2024
+Descripción: biologia 
+Resultados: [2.3, 2.5, 3.4] 
+Media: 2.7333333333333334
+Mediana: 2.5 
+Moda: 2.3 
+Desviación estandar: 0.5859465277082315 
+Rango: 1.1 
+Varianza: 0.3433333333333333 
+
+===========================================================Experimento 2=================
+Nombre: Union
+Fecha: 27/11/2024
+Descripción: fisica 
+Resultados: [2.3, 2.4, 3.5] 
+Media: 2.7333333333333334
+Mediana: 2.4 
+Moda: 2.3 
+Desviación estandar: 0.6658328118479394 
+Rango: 1.2000000000000002 
+Varianza: 0.4433333333333334 
+
+============================================
