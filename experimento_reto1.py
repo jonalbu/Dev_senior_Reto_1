@@ -86,25 +86,26 @@ def analisis_resultados(listExperimento):
         return
     
     table = PrettyTable()
-    table.field_names = ["Nombre", "Fecha", "Descripción", 
+    table.field_names = ["# Experimento", "Nombre", "Fecha", "Descripción", 
                          "Resultados","Media","Mediana","Moda",
                          "Desviación estándar","Rango","Varianza"
                          ]
     table.align = "l" # alinear a la izquierda
-    for i in listExperimento:
+    for i, date in enumerate(listExperimento, start=1):
         
-        descripcion = i.description
-        resultados = i.results 
-        media = i.media
-        mediana = i.mediana
-        moda = i.moda
-        desviacionEstandar = i.desviacion_estandar 
-        rango = i.rango
-        varianza = i.varianza
+        descripcion = date.description
+        resultados = date.results 
+        media = date.media
+        mediana = date.mediana
+        moda = date.moda
+        desviacionEstandar = date.desviacion_estandar 
+        rango = date.rango
+        varianza = date.varianza
         
         table.add_row([
-            f"{i.name}", 
-            f"{i.date.strftime('%d/%m/%Y')}", 
+            f"{i}",
+            f"{date.name}", 
+            f"{date.date.strftime('%d/%m/%Y')}", 
             f"\033[;31m{descripcion}\033[0;m",
             f"\033[;31m{resultados}\033[0;m",
             f"\033[;31m{media:.2f}\033[0;m",
@@ -218,7 +219,8 @@ def comparación_experimentos(listExperimento):
        
 
 def generacion_informe(listExperimento):
-    # generar un informe con los resultados de los experimentos
+    
+    # Generar informe con los resultados de los experimentos
     if not listExperimento:
         print("No hay experimentos para generar informe")
         return
@@ -226,24 +228,34 @@ def generacion_informe(listExperimento):
     experimentoSeleccionado = seleccionar_experimentos(listExperimento)
     
     with open("informe.txt", "w") as archivo:
+        
         archivo.write(f"***************INFORME DE EXPERIMENTOS************\n\n")
         
+        table = PrettyTable()
+        table.field_names = ["# Experimento", "Nombre", "Fecha", "Descripción", 
+                                    "Resultados","Media","Mediana","Moda",
+                                    "Desviación estándar","Rango","Varianza"
+                                    ]
+        table.align = "l" # alinear a la izquierda
+              
         for i, data in enumerate(experimentoSeleccionado, start=1):
-
-            archivo.write(f"===============Experimento {i}=================\n")
-            archivo.write(f"Nombre: {data.name}\n")
-            archivo.write(f"Fecha: {data.date.strftime('%d/%m/%Y')}\n")
-            archivo.write(f"Descripción: {data.description} \n")
-            archivo.write(f"Resultados: {data.results} \n")
-            archivo.write(f"Media: {data.media}\n")
-            archivo.write(f"Mediana: {data.mediana} \n")
-            archivo.write(f"Moda: {data.moda} \n")
-            archivo.write(f"Desviación estandar: {data.desviacion_estandar} \n")
-            archivo.write(f"Rango: {data.rango} \n")
-            archivo.write(f"Varianza: {data.varianza} \n")
-            archivo.write("\n")
-            archivo.write("============================================")
+            
+            table.add_row([
+            f"{i}",
+            f"{data.name}", 
+            f"{data.date.strftime('%d/%m/%Y')}", 
+            f"{data.description}",
+            f"{data.results}",
+            f"{data.media:.2f}",
+            f"{data.mediana:.2f}",
+            f"{data.moda:.2f}",
+            f"{data.desviacion_estandar:.2f}",
+            f"{data.rango:.2f}",
+            f"{data.varianza:.2f}"
+            ])
         
+        archivo.write(str(table))
+   
     print("******************DATOS A GENERAR EN EL INFORME*******************")
     analisis_resultados(experimentoSeleccionado)             
 
