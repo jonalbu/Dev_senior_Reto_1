@@ -7,6 +7,6 @@ Es un programa diseñado para recopilar y gestionar datos experimentales mediant
 
 This program is designed to collect and manage experimental data through functions such as adding, viewing, and organizing laboratory information. During its execution, the program will request details such as the experiment's name, description or type, execution date, and obtained results. Additionally, it will include an interactive menu where users can choose from various actions, such as analyzing experiment data, comparing results, deleting records, or generating detailed experiment reports.
 
-###### El programa se encuentra [Aquí](experimento_reto1.py)
+###### El Código del programa se encuentra [aquí](experimento_reto1.py)
 
  
